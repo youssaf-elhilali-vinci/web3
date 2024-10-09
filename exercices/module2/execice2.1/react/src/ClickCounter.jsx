@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 
 const ClickCounter = ({ title, message, message2 }) => {
-  const [count, setCount] = useState(0);
+  const initialCount = JSON.parse(localStorage.getItem("count") )
+  const [count, setCount] = useState(initialCount);
   const [estDessus, setEstDessus] = useState(false);
 
 
@@ -10,7 +11,10 @@ const ClickCounter = ({ title, message, message2 }) => {
     <div>
       <h1>{title}</h1>
       <button
-        onClick={() => setCount(count+1)} 
+        onClick={() =>{
+            setCount(count+1);
+           localStorage.setItem("count", JSON.stringify(count));
+        }} 
         onMouseEnter ={() => setEstDessus(true)} 
         onMouseLeave ={() => setEstDessus(false)} 
       >
