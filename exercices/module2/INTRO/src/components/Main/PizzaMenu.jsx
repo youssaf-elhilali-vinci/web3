@@ -38,10 +38,10 @@ const PizzaMenu = () => {
         </tr>
       </thead>
       <tbody>
-        {pizzas.map((pizza) => (
-          <tr key={pizza.id}>
-            <td>{pizza.title}</td>
-            <td>{pizza.content}</td>
+        {pizzas.map(({id, title, content}) => (
+          <tr key={id}>
+            <td>{title}</td>
+            <td>{content}</td>
           </tr>
         ))}
       </tbody>
