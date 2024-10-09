@@ -22,6 +22,8 @@ function App({ title }) {
         <ClickCounter 
           title="Compteur de clics" 
           message="You are a master in the art of clicking!" 
+          message2="Please click on me now !" 
+
         />
       </div>
     </>
