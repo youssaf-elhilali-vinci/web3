@@ -38,6 +38,15 @@ function Statistics({ countGood, countNeutral, countBad, countAll }) {
   )
 }
 
+function Loading() {
+  return (
+    <div>
+      <h1>Loading...</h1>
+    </div>
+  )
+}
+
+
 
 
 function App() {
@@ -45,7 +54,11 @@ function App() {
   const [countNeutral, setCountNeutral] = useState(0)
   const [countBad, setCountBad] = useState(0)
   const [countAll, setCountAll] = useState(0)
+  const [loading, setLoading] = useState(true)
 
+  setTimeout(() => {
+    setLoading(false)
+  }, 3000)
 
   const handleGood = () => {
     setCountGood(countGood + 1)
@@ -71,8 +84,16 @@ function App() {
         <button onClick={handleBad}>Bad</button>
 
       </div>
+      {(loading == true ? (
+        <Loading />
+      ) : (
+        <Statistics countGood={countGood} countNeutral={countNeutral} countBad={countBad} countAll={countAll} />
+      )
+      )}
 
-      <Statistics countGood={countGood} countNeutral={countNeutral} countBad={countBad} countAll={countAll} />
+
+
+
 
     </>
   )
